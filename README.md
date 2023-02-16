@@ -1,5 +1,5 @@
 # Lidar-Odometry
-Graduate Project
+Capstone Project
 
 ## Dependencies
 - [Catkin Command Line Tools](https://catkin-tools.readthedocs.io) (for building packages)
@@ -45,10 +45,6 @@ Graduate Project
     ```
     catkin build lio_sam --mem-limit 50% -j 1
     ```
-- [Velodyne Driver](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
-    ```
-    catkin build
-    ```
 ## Configure
 ### Parameters configuration files
 - Xsens: src/xsens_ros_mti_driver/param/xsens_mti_node.yaml
@@ -63,16 +59,14 @@ Graduate Project
     ```
     source devel/setup.zsh
     ```
-- Launch the Xsens MTi driver from your catkin workspace:
+- Launch the Xsens MTi and Velodyne drivers:
     ```
-    roslaunch xsens_mti_driver xsens_mti_node.launch
-    ```
-- Launch Velodyne driver:
-    ```
-    roslaunch velodyne_pointcloud VLP16_points.launch
+    roslaunch lidar_odometry sensors.launch
     ```
 - Launch LIO-SAM:
     ```
-    roslaunch lio_sam run.launch
+    roslaunch lidar_odometry lio_sam.launch
     ```
+
+
     
