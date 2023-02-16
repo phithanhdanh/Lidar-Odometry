@@ -1,0 +1,8 @@
+<launch>
+    <rosparam file="$(find lidar_odometry)/config/params.yaml" command="load" />
+
+    <node  name="xsens_mti_node" pkg="xsens_mti_driver" type="xsens_mti_node" output="screen"/>
+
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
+
+</launch>

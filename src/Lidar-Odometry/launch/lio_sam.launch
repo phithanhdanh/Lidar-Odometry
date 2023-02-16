@@ -1,0 +1,26 @@
+<launch>
+
+<!-- Parameters -->
+    <rosparam file="$(find lidar_odometry)/config/params.yaml" command="load" />
+
+    <!--- LOAM -->
+    <include file="$(find lio_sam)/launch/include/module_loam.launch" />
+
+    <!--- Robot State TF -->
+    <include file="$(find lio_sam)/launch/include/module_robot_state_publisher.launch" />
+
+    <!--- Run Navsat -->
+    <include file="$(find lio_sam)/launch/include/module_navsat.launch" >
+        <arg name="imu_topic" value="imu/data" />
+        <arg name="gnss_topic" value="gnss" />
+    </include>
+
+    <!--- Run Rviz-->
+    <include file="$(find lio_sam)/launch/include/module_rviz.launch" />
+
+    <!--  Transforms  -->
+    <node pkg="tf" type="static_transform_publisher"
+        name="gps_transform_imu_link"
+        args="0.0 -0.06 0.04 0 0 0 base_link imu_link 10" />
+
+</launch>
