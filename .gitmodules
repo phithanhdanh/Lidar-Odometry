@@ -1,3 +1,6 @@
 [submodule "LIO-SAM"]
 	path = src/LIO-SAM
 	url = https://github.com/phithanhdanh/LIO-SAM
+[submodule "src/velodyne"]
+	path = src/velodyne
+	url = https://github.com/ros-drivers/velodyne.git
