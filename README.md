@@ -45,10 +45,13 @@ Capstone Project
     ```
     catkin build lio_sam --mem-limit 50% -j 1
     ```
+- Lidar Odometry (Custom launch files)
+    ```
+    catkin build lidar_odometry
+    ```
 ## Configure
-### Parameters configuration files
-- Xsens: src/xsens_ros_mti_driver/param/xsens_mti_node.yaml
-- LIO-SAM: src/LIO-SAM/config/params.yaml
+- Parameters configuration files: src/Lidar-Odometry/config/params.yaml
+- Launch files: src/Lidar-Odometry/launch
 ### Tutorials
 - Velodyne VLP-16 tutorial: http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16
 - LIO-SAM tutorials: https://github.com/TixiaoShan/LIO-SAM/blob/master/README.md
