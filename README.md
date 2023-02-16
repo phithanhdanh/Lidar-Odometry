@@ -11,7 +11,7 @@ Graduate Project
     wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 
     sudo apt-get update
-    sudo apt-get install python3-catkin-tools
+    sudo apt-get install -y python3-catkin-tools
     ```
 - [ROS](http://wiki.ros.org/ROS/Installation) (for Noetic)
     ```
@@ -20,11 +20,11 @@ Graduate Project
 - [gtsam](https://gtsam.org/get_started/) (Georgia Tech Smoothing and Mapping library)
     ```
     sudo add-apt-repository ppa:borglab/gtsam-release-4.0
-    sudo apt install libgtsam-dev libgtsam-unstable-dev
+    sudo apt install -y libgtsam-dev libgtsam-unstable-dev
     ```
 - [Velodyne](http://wiki.ros.org/velodyne)
     ```
-    sudo apt-get install ros-noetic-velodyne
+    sudo apt-get install -y ros-noetic-velodyne
     ```
 - Update all dependecies on your workspace folder:
     ```
