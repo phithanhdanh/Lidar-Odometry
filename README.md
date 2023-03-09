@@ -28,7 +28,7 @@ Capstone Project
     ```
 - Update all dependecies on your workspace folder:
     ```
-    cd ~/catkin_ws/src
+    cd ~/catkin_ws
     rosdep install --from-paths src --ignore-src -r -y
     ```
 ## Build

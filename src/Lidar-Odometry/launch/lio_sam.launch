@@ -1,6 +1,8 @@
 <launch>
 
-<!-- Parameters -->
+    <arg name="project" default="lidar_odometry"/>
+
+    <!-- Parameters -->
     <rosparam file="$(find lidar_odometry)/config/params.yaml" command="load" />
 
     <!--- LOAM -->
@@ -15,8 +17,35 @@
         <arg name="gnss_topic" value="gnss" />
     </include>
 
+    <group>
+        <arg name="imu_topic" default="imu/data" />
+        <arg name="gnss_topic" default="/fix_rtk" />
+
+        <env name="ROSCONSOLE_CONFIG_FILE" value="$(find lio_sam)/launch/include/rosconsole/rosconsole_error.conf"/>
+        
+        <!-- EKF GPS-->
+        <node pkg="robot_localization" type="ekf_localization_node" name="ekf_rtk" respawn="true">
+            <remap from="odometry/filtered" to="odometry/navrtk" />
+        </node>
+
+        <!-- Navsat -->
+        <node pkg="robot_localization" type="navsat_transform_node" name="navrtk" respawn="true">
+            <!-- <rosparam param="datum">[42.35893211, -71.09345588, 0.0, world, base_link]</rosparam> -->
+            <remap from="imu/data" to="$(arg imu_topic)" />
+            <remap from="gps/fix" to="$(arg gnss_topic)" />
+            <remap from="odometry/filtered" to="odometry/navrtk" />
+            <remap from="odometry/gps" to="odometry/rtk" />
+        </node>
+
+        <!--  Transforms  -->
+        <node pkg="tf" type="static_transform_publisher"
+            name="rtk_transform_base_link"
+            args="0.0 -0.06 0.04 0 0 0 base_link gps 10" />
+    </group>
+
     <!--- Run Rviz-->
-    <include file="$(find lio_sam)/launch/include/module_rviz.launch" />
+    <node pkg="rviz" type="rviz" name="$(arg project)_rviz" args="-d $(find lidar_odometry)/config/rviz.rviz" />
+    <!-- <include file="$(find lio_sam)/launch/include/module_rviz.launch"/> -->
 
     <!--  Transforms  -->
     <node pkg="tf" type="static_transform_publisher"
