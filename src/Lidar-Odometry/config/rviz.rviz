@@ -123,7 +123,7 @@ Visualization Manager:
               Value: true
             Value: false
           Enabled: true
-          Keep: 300
+          Keep: 1000
           Name: Odom GPS
           Position Tolerance: 0.10000000149011612
           Queue Size: 10
@@ -158,7 +158,7 @@ Visualization Manager:
               Value: true
             Value: false
           Enabled: true
-          Keep: 100
+          Keep: 2000
           Name: Odometry RTK
           Position Tolerance: 0.10000000149011612
           Queue Size: 10
@@ -503,7 +503,8 @@ Visualization Manager:
           Marker Topic: /lio_sam/mapping/loop_closure_constraints
           Name: Loop constraint
           Namespaces:
-            {}
+            loop_edges: true
+            loop_nodes: true
           Queue Size: 100
           Value: true
       Enabled: true
@@ -524,7 +525,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 86.00811767578125
+      Distance: 102.90682983398438
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -532,17 +533,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 35.47133255004883
+        Y: -8.285318374633789
+        Z: 0.029550092294812202
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.1253981590270996
+      Pitch: 1.419796347618103
       Target Frame: base_link
-      Yaw: 3.3316705226898193
+      Yaw: 3.4616711139678955
     Saved: ~
 Window Geometry:
   Displays:
