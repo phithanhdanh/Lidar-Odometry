@@ -19,7 +19,7 @@
 
     <group>
         <arg name="imu_topic" default="imu/data" />
-        <arg name="gnss_topic" default="/fix_rtk" />
+        <arg name="gnss_topic" default="/fix" />
 
         <env name="ROSCONSOLE_CONFIG_FILE" value="$(find lio_sam)/launch/include/rosconsole/rosconsole_error.conf"/>
         
@@ -40,7 +40,7 @@
         <!--  Transforms  -->
         <node pkg="tf" type="static_transform_publisher"
             name="rtk_transform_base_link"
-            args="0.0 -0.06 0.04 0 0 0 base_link gps 10" />
+            args="0.0 -0.06 0.04 0 0 0 base_link rtk 10" />
     </group>
 
     <!--- Run Rviz-->

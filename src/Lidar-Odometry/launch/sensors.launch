@@ -1,19 +1,24 @@
 <launch>
-    <arg name="rtk_en" default="false" />
+    <!-- <arg name="rtk_en" default="false" /> -->
     
     <!-- <rosparam file="$(find lidar_odometry)/config/params.yaml" command="load" /> -->
 
+    <!-- XSENS IMU/GNSS -->
     <node  name="xsens_mti_node" pkg="xsens_mti_driver" type="xsens_mti_node" output="screen">
         <rosparam command="load" file="$(find lidar_odometry)/config/xsens.yaml" />
     </node>
 
+    <!-- Velodyne VLP-16-->
     <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
 
-    <include file="$(find nmea_navsat_driver)/launch/nmea_serial_driver.launch" if="$(arg rtk_en)">
-        <arg name="port" default="/dev/ttyUSB0"/>
-        <arg name="baud" default="115200"/>
-        <arg name="frame_id" default="rtk"/>
-        <remap from="/fix" to="rtk/fix"/>
-    </include>
-
+    <!-- RTK Rover-->
+    <group ns="rtk">
+        <include file="$(find nmea_navsat_driver)/launch/nmea_serial_driver.launch" if="$(arg rtk_en)">
+            <arg name="port" default="/dev/ttyUSB1"/>
+            <arg name="baud" default="115200"/>
+            <arg name="frame_id" default="rtk"/>
+            <!-- <remap from="/fix" to="/rtk/fix"/> -->
+        </include>
+    </group>
+    <!-- <include file="$(find lidar_odometry)/launch/rtk.launch" if="$(arg rtk_en)"/> -->
 </launch>

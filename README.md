@@ -72,4 +72,7 @@ Capstone Project
     ```
 
 
-    
+RTK:
+```
+roslaunch nmea_navsat_driver nmea_serial_driver.launch baud:=115200 frame_id:=rtk /fix:=/rtk/fix port:=/dev/ttyUSB1    
+```
