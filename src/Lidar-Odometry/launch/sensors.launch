@@ -4,9 +4,10 @@
     <!-- <rosparam file="$(find lidar_odometry)/config/params.yaml" command="load" /> -->
 
     <!-- XSENS IMU/GNSS -->
-    <group ns="xsens">
+    <group>
         <node  name="xsens_mti_node" pkg="xsens_mti_driver" type="xsens_mti_node" output="screen">
             <rosparam command="load" file="$(find lidar_odometry)/config/xsens.yaml" />
+            <!-- <remap from="imu/data" to="imu_raw" /> -->
         </node>
     </group>
 
@@ -14,10 +15,10 @@
     <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
 
     <!-- RTK Rover-->
-    <group ns="rtk">
+    <!-- <group ns="rtk">
         <node name="nmea_serial_driver_node" pkg="nmea_navsat_driver" type="nmea_serial_driver" output="screen">
             <rosparam command="load" file="$(find lidar_odometry)/config/rtk.yaml" />
         </node>
-    </group>
+    </group> -->
 
 </launch>
