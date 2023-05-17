@@ -40,7 +40,7 @@
         <!--  Transforms  -->
         <node pkg="tf" type="static_transform_publisher"
             name="rtk_transform_base_link"
-            args="0.0 -0.06 0.04 0 0 0 base_link rtk 10" />
+            args="0.0 -0.06 0.04 0 0 0 base_link gps 10" />
     </group>
 
     <!--- Run Rviz-->
