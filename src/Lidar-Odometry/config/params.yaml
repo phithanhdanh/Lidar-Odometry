@@ -46,10 +46,19 @@ lio_sam:
   # extrinsicRPY: [0, -1, 0,
   #                1, 0, 0,
   #                0, 0, 1]
+## BK Dataset
+  # extrinsicTrans: [-0.01, -0.02, -0.15]
+  # extrinsicRot: [1, 0, 0,
+  #                 0, 1, 0,
+  #                 0, 0, 1]
+  # extrinsicRPY: [1, 0, 0,
+  #                 0, 1, 0,
+  #                 0, 0, 1]
+## BK Dataset LIO-SAM
   extrinsicTrans: [-0.01, -0.02, -0.15]
-  extrinsicRot: [1, 0, 0,
-                  0, 1, 0,
-                  0, 0, 1]
+  extrinsicRot: [ 0.9924,   -0.0872,  0.0868,      #roll pitch yaw 5 5 0 degrees
+                  0.0868,   0.9962,   0.0076,
+                  -0.0872,  0,        0.9962]
   extrinsicRPY: [1, 0, 0,
                   0, 1, 0,
                   0, 0, 1]
