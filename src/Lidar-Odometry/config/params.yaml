@@ -4,7 +4,7 @@ lio_sam:
   pointCloudTopic: "velodyne_points"               # Point cloud data
   imuTopic: "imu/data"                         # IMU data
   odomTopic: "odometry/imu"                   # IMU pre-preintegration odometry, same frequency as IMU
-  gpsTopic: "odometry/gps"                   # GPS odometry topic from navsat, see module_navsat.launch file
+  gpsTopic: "odometry/gpsz"                   # GPS odometry topic from navsat, see module_navsat.launch file
 
   # Frames
   lidarFrame: "velodyne"
@@ -14,7 +14,7 @@ lio_sam:
 
   # GPS Settings
   useImuHeadingInitialization: true           # if using GPS data, set to "true"
-  useGpsElevation: false                      # if GPS elevation is bad, set to "false"
+  useGpsElevation: true                      # if GPS elevation is bad, set to "false"
   gpsCovThreshold: 10.0                        # m^2, threshold for using GPS data
   poseCovThreshold: 25.0                      # m^2, threshold for using GPS data
   
@@ -47,21 +47,21 @@ lio_sam:
   #                1, 0, 0,
   #                0, 0, 1]
 ## BK Dataset
-  # extrinsicTrans: [-0.01, -0.02, -0.15]
-  # extrinsicRot: [1, 0, 0,
-  #                 0, 1, 0,
-  #                 0, 0, 1]
-  # extrinsicRPY: [1, 0, 0,
-  #                 0, 1, 0,
-  #                 0, 0, 1]
-## BK Dataset LIO-SAM
   extrinsicTrans: [-0.01, -0.02, -0.15]
-  extrinsicRot: [ 0.9924,   -0.0872,  0.0868,      #roll pitch yaw 5 5 0 degrees
-                  0.0868,   0.9962,   0.0076,
-                  -0.0872,  0,        0.9962]
+  extrinsicRot: [1, 0, 0,
+                  0, 1, 0,
+                  0, 0, 1]
   extrinsicRPY: [1, 0, 0,
                   0, 1, 0,
                   0, 0, 1]
+## BK Dataset LIO-SAM
+  # extrinsicTrans: [-0.01, -0.02, -0.15]
+  # extrinsicRot: [ 0.9924,   -0.0872,  0.0868,      #roll pitch yaw 5 5 0 degrees
+  #                 0.0868,   0.9962,   0.0076,
+  #                 -0.0872,  0,        0.9962]
+  # extrinsicRPY: [1, 0, 0,
+  #                 0, 1, 0,
+  #                 0, 0, 1]
 
   # LOAM feature threshold
   edgeThreshold: 1.0
